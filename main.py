@@ -31,7 +31,8 @@ def main():
         torch.backends.cudnn.benchmark = False
         torch.backends.cudnn.deterministic = True
         
-    sys.stdout.write(log_dir)
+    sys.stdout.write(os.path.abspath(os.getcwd()))
+    sys.stdout.write(args.log_dir)
     log_dir = os.path.join(os.path.abspath(os.getcwd()),args.log_dir) 
     eval_log_dir = log_dir + "_eval"
     utils.cleanup_log_dir(log_dir)
