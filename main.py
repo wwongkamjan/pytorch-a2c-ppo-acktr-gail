@@ -2,6 +2,7 @@ import copy
 import glob
 import os
 import time
+import sys
 from collections import deque
 
 import gym
@@ -29,9 +30,9 @@ def main():
     if args.cuda and torch.cuda.is_available() and args.cuda_deterministic:
         torch.backends.cudnn.benchmark = False
         torch.backends.cudnn.deterministic = True
-
-    log_dir = os.path.join(os.path.abspath(os.getcwd()),args.log_dir)
-    print(log_dir)
+        
+    sys.stdout.write(log_dir)
+    log_dir = os.path.join(os.path.abspath(os.getcwd()),args.log_dir) 
     eval_log_dir = log_dir + "_eval"
     utils.cleanup_log_dir(log_dir)
     utils.cleanup_log_dir(eval_log_dir)
