@@ -13,6 +13,11 @@ def get_args():
         default=False,
         help='do imitation learning with gail')
     parser.add_argument(
+        '--FGSM',
+        action='store_true',
+        default=False,
+        help='perturb observation space')
+    parser.add_argument(
         '--gail-experts-dir',
         default='./gail_experts',
         help='directory that contains expert demonstrations for gail')
